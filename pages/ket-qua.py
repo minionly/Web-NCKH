@@ -173,8 +173,8 @@ def show():
     df = pd.DataFrame(model_data)
     df.index = range(1, len(df) + 1)  # Start index from 1
     # Format AUC columns to 3 decimal places
-    df["AUC Tập Kiểm Tra"] = df["AUC Tập Kiểm Tra"].round(3)
-    df["AUC Tập Độc Lập"] = df["AUC Tập Độc Lập"].round(3)
+    df["AUC Tập Kiểm Tra"] = df["AUC Tập Kiểm Tra"]
+    df["AUC Tập Độc Lập"] = df["AUC Tập Độc Lập"]
     # Increase overall font size in the dataframe
     st.dataframe(df.style.set_properties(**{'font-size': '22px'}), use_container_width=True)
     
