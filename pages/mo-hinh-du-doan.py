@@ -94,5 +94,11 @@ def show():
         </p>
         """, unsafe_allow_html=True)
 
+    st.markdown("""
+        <div style="text-align: center; margin-top: 32px; color: #567; font-size: 0.9em;">
+            <p>© 2025 Nhóm Nghiên Cứu - Trường THPT Gia Định</p>
+        </div>
+    """, unsafe_allow_html=True)
+
 show()
 menu()

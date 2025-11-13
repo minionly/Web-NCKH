@@ -55,16 +55,6 @@ def show():
     else:
         st.info("Một hoặc cả hai hình ảnh chưa được thêm.")
     
-    genes = ["NFYC", "CEP57", "CD44", "ABCC5", "TGFB1I1", "PTPN11", "SMARCA2", "MICAL2", "SLC36A1", "ZXDA"]
-
-    cols = st.columns(5)
-    for i, gene in enumerate(genes):
-        with cols[i % 5]:
-            if gene in ["PTPN11", "MICAL2"]:
-                st.info(f"**{i+1}. {gene}**")
-            else:
-                st.markdown(f"**{i+1}. {gene}**", unsafe_allow_html=True)
-    
     st.success("**Đặc biệt chú ý:** Hai gen **PTPN11** và **MICAL2** được xác định là các dấu ấn sinh học quan trọng nhất, có khả năng dự đoán cao và ổn định trên nhiều tập dữ liệu.")
 
     
@@ -293,6 +283,12 @@ def show():
         <li>Độ nhạy 77,8% đảm bảo phát hiện được phần lớn ca di căn</li>
         <li>Mô hình ổn định và tổng quát tốt trên dữ liệu mới</li>
     </ul>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <div style="text-align: center; margin-top: 32px; color: #567; font-size: 0.9em;">
+            <p>© 2025 Nhóm Nghiên Cứu - Trường THPT Gia Định</p>
+        </div>
     """, unsafe_allow_html=True)
 
 show()
