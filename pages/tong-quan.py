@@ -25,7 +25,7 @@ def show():
     """, unsafe_allow_html=True)
 
     # II. Tình hình trên thế giới và tại Việt Nam
-    st.markdown("## Tình hình trên thế giới và tại Việt Nam:")
+    st.markdown("## Tình hình trên thế giới và tại Việt Nam")
 
     img_path = Path("media/graphic-asr-inc-both-sexes-in-2022-breast.png")
     if img_path.exists():
@@ -94,7 +94,7 @@ def show():
     """, unsafe_allow_html=True)
 
     # IV. Các phương pháp phát hiện
-    st.markdown("## Các phương pháp chẩn đo")
+    st.markdown("## Các phương pháp chẩn đoán")
     st.markdown("""
     <div style="font-size:20px;">
       
