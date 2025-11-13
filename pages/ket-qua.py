@@ -166,8 +166,8 @@ def show():
     model_data = {
         "Mô hình": ["Logistic Regression", "SVM", "KNN", "XGBoost", "AdaBoost", "Random Forest", "Decision Tree"],
         "Tổ hợp gene tối ưu": ["PTPN11, MICAL2", "PTPN11, MICAL2", "ABCC5, TGFB1I1, PTPN11, SLC36A1", "ABCC5, TGFB1I1, SMARCA2, SLC36A1", "ABCC5, TGFB1I1, PTPN11, MICAL2, SLC36A1", "PTPN11, MICAL2", "MICAL2, NFYC, CD44"],
-        "AUC Tập Kiểm Tra": [0.68, 0.66, 0.728, 0.659, 0.685, 0.746, 0.735],
-        "AUC Tập Độc Lập": [0.774, 0.772, 0.758, 0.747, 0.723, 0.69, 0.686],
+        "AUC Tập Kiểm Tra": ["0.68", "0.66", "0.728", "0.659", "0.685", "0.746", "0.735"],
+        "AUC Tập Độc Lập": ["0.774", "0.772", "0.758", "0.747", "0.723", "0.69", "0.686"],
     }
 
     df = pd.DataFrame(model_data)
