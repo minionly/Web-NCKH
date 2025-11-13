@@ -67,10 +67,9 @@ def show():
     
     st.success("**Đặc biệt chú ý:** Hai gen **PTPN11** và **MICAL2** được xác định là các dấu ấn sinh học quan trọng nhất, có khả năng dự đoán cao và ổn định trên nhiều tập dữ liệu.")
 
-    st.markdown("-")
-
+    
+    st.markdown("---")
     st.markdown("### Mô hình 3D Cấu trúc Protein")
-
     col1, col2 = st.columns(2)
 
     with col1:
