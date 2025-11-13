@@ -94,7 +94,7 @@ def show():
     """, unsafe_allow_html=True)
 
     # IV. Các phương pháp phát hiện
-    st.markdown("## Các phương pháp phát hiện")
+    st.markdown("## Các phương pháp chẩn đo")
     st.markdown("""
     <div style="font-size:20px;">
       
