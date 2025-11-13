@@ -4,7 +4,6 @@ from app import menu
 from pathlib import Path
 import base64
 from Config import Config
-import py3Dmol
 
 st.set_page_config(
     page_title=Config.APP_NAME,
