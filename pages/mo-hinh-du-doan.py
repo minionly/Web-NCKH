@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from app import menu
+from ui import apply_global_styles
 from Config import Config
 import math
 
@@ -9,6 +10,8 @@ st.set_page_config(
     page_icon=Config.APP_ICON,
     layout="wide"
   )
+
+apply_global_styles()
 
 # Logistic regression parameters
 a1 = -0.3554353
@@ -33,30 +36,45 @@ def show():
     st.markdown("## Công cụ dự đoán nguy cơ di căn xương")
     st.write('<p style="font-size:20px;">Nhập giá trị biểu hiện gene để dự đoán nguy cơ di căn xương ở bệnh nhân ung thư vú</p>', unsafe_allow_html=True)
 
-    # Input gene expressions via text input
-    ptpn11_input = st.number_input("Biểu hiện gene PTPN11 đã chuẩn hóa Z-score", min_value=-100.0, max_value=100.0, value=0.123456789, step=0.1, format="%.9f")
-    st.caption("Protein Tyrosine Phosphatase Non-receptor Type 11")
+    with st.form(key="prediction_form"):
+        col_a, col_b = st.columns(2)
+        with col_a:
+            ptpn11_input = st.number_input(
+                "Biểu hiện gene PTPN11 đã chuẩn hóa Z-score",
+                min_value=-10.0, max_value=10.0, value=0.12, step=0.01, format="%.9f"
+            )
+            st.caption("Protein Tyrosine Phosphatase Non-receptor Type 11")
+        with col_b:
+            mical2_input = st.number_input(
+                "Biểu hiện gene MICAL2 đã chuẩn hóa Z-score",
+                min_value=-10.0, max_value=10.0, value=0.12, step=0.01, format="%.9f"
+            )
+            st.caption("Molecule Interacting with CasL 2")
+        submitted = st.form_submit_button(label="Tính toán")
 
-    mical2_input = st.number_input("Biểu hiện gene MICAL2 đã chuẩn hóa Z-score", min_value=-100.0, max_value=100.0, value=0.123456789, step=0.1, format="%.9f")
-    st.caption("Molecule Interacting with CasL 2")
-
-    risk_score, prediction = logistic_regression_predict(ptpn11_input, mical2_input)
+    risk_score = None
+    prediction = None
+    if submitted:
+        risk_score, prediction = logistic_regression_predict(ptpn11_input, mical2_input)
 
     st.markdown("### Kết quả dự đoán")
-    color = "#10B981"
-    risk_level = "Bình thường"
-    recommendation = "Lịch trình kiểm tra cơ bản"
+    if risk_score is not None:
+        color = "#10B981"
+        risk_level = "Bình thường"
+        recommendation = "Lịch trình kiểm tra cơ bản"
 
-    if risk_score >= 0.5682:
-        color = "#DC2626"
-        risk_level = "Mắc bệnh"
-        recommendation = "Kiểm tra xương nâng cao và theo dõi sát sao"
+        if risk_score >= 0.5682:
+            color = "#DC2626"
+            risk_level = "Mắc bệnh"
+            recommendation = "Kiểm tra xương nâng cao và theo dõi sát sao"
 
-    st.markdown(f"""
-    <div style="background: {color}; padding: 20px; border-radius: 12px; color: white; font-weight: bold; font-size: 24px; text-align:center;">
-    {risk_level}
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style="background: {color}; padding: 20px; border-radius: 12px; color: white; font-weight: bold; font-size: 24px; text-align:center;">
+        {risk_level}
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.info("Nhập thông số và bấm 'Tính toán' để xem kết quả.")
     ###
 
     st.warning("""
@@ -112,6 +130,8 @@ def show():
 
     with col2:
         st.markdown("MICAL2 (Molecule Interacting with CasL 2) là một enzyme có khả năng phá vỡ cấu trúc bên trong tế bào. Sự thay đổi này làm cho tế bào dễ dàng thay đổi hình dạng và di chuyển hơn.")
+        st.markdown("")
+        st.markdown("")
         st.markdown("")
         st.markdown("")
         st.markdown("")
