@@ -123,7 +123,7 @@ def show():
             "category": "Giáo viên",
             "name": "ThS. Cao Hoài Đức",
             "role": "Giáo viên hướng dẫn",
-            "phone": "0834501020",
+            "phone": "0834 501 020",
             "email": "Hoaiducsn@gmail.com",
             "initials": "CD"
         },
@@ -131,15 +131,15 @@ def show():
             "category": "Cố vấn khoa học",
             "name": "TS. Nguyễn Minh Nam",
             "role": "Trưởng Bộ môn Kỹ thuật Y sinh – Trường Đại học Khoa học Sức Khoẻ, Đại học Quốc gia Thành phố Hồ Chí Minh",
-            "phone": "a",
+            "phone": "0904 972 804",
             "email": "nmnam@uhsvnu.edu.vn",
             "initials": "MN"
         },
         {
             "category": "Cố vấn khoa học",
             "name": "KS. Ngô Ngọc Hải",
-            "role": "Cố vấn khoa học",
-            "phone": "a",
+            "role": "Genetics Data",
+            "phone": "0329 407 417",
             "email": "ngongochai2202003@gmail.com",
             "initials": "NH"
         }

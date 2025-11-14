@@ -4,6 +4,24 @@ from Config import Config
 from pathlib import Path
 import base64
 
+def set_background(image_path: Path):
+  if image_path.exists():
+    img_base64 = base64.b64encode(open(image_path, "rb").read()).decode()
+    st.markdown(
+      f"""
+      <style>
+        .stApp {{
+          background-image: url("data:image/png;base64,{img_base64}");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }}
+      </style>
+      """,
+      unsafe_allow_html=True
+    )
+
 def menu():
   st.sidebar.page_link('./app.py', label='Trang chủ')
   st.sidebar.page_link('./pages/tong-quan.py', label='Tổng quan')
@@ -12,6 +30,69 @@ def menu():
   st.sidebar.page_link('./pages/ket-qua.py', label='Kết quả')
   st.sidebar.page_link('./pages/lien-he.py', label='Liên hệ')
 
+def set_video_background():
+  st.markdown(
+    """
+    <style>
+      .video-bg {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+      }
+      .video-bg video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 1; /* 90% transparency */
+      }
+      .stApp,
+      [data-testid="stHeader"],
+      .block-container {
+        background: transparent !important;
+      }
+      section[data-testid="stSidebar"],
+      section[data-testid="stSidebar"] > div,
+      [data-testid="stSidebar"] [data-testid="stSidebarContent"] {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      /* Sidebar nav items: solid white boxes (no transparency) */
+      section[data-testid="stSidebar"] [data-testid="stSidebarContent"] a,
+      section[data-testid="stSidebar"] [data-testid="stSidebarContent"] button {
+        background: #ffffff !important;
+        color: #111111 !important;           /* dark text for contrast */
+        border-radius: 12px !important;
+        padding: 0px 8px !important;
+        margin: 2px 0 !important;
+        border: 1px solid rgba(0,0,0,0.08) !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+      }
+      section[data-testid="stSidebar"] [data-testid="stSidebarContent"] a:hover,
+      section[data-testid="stSidebar"] [data-testid="stSidebarContent"] button:hover {
+        background: #f4f4f4 !important;
+      }
+      /* Icons inside items: dark for contrast on white box */
+      section[data-testid="stSidebar"] [data-testid="stSidebarContent"] svg {
+        fill: #111111 !important;
+      }
+      /* Optional: emphasize current page */
+      section[data-testid="stSidebar"] [data-testid="stSidebarContent"] a[aria-current="page"] {
+        border-color: rgba(0,0,0,0.2) !important;
+      }
+    </style>
+    <div class="video-bg">
+      <video autoplay muted playsinline preload="auto" onended="this.pause();">
+        <source src="https://www.senseibio.com/wp-content/uploads/2022/05/Homepage_Hero.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+    """,
+    unsafe_allow_html=True
+  )
+
 
 if __name__ == '__main__':
   st.set_page_config(
@@ -19,6 +100,9 @@ if __name__ == '__main__':
     page_icon=Config.APP_ICON,
     layout="wide"
   )
+
+  # Apply video background for the home page
+  set_video_background()
 
   def show():
     logo_path = Path("media/logo-giadinh_2362023923-removebg-preview.png")

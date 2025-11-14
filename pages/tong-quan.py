@@ -15,7 +15,7 @@ def show():
     st.markdown("---")
 
     # I. Ung thư vú di căn Xương là gì?
-    st.markdown("## Ung thư Vú di căn Xương là gì?")
+    st.markdown("## Ung thư Vú là gì?")
     st.markdown("""
 <div style="
     font-size: 22px;
