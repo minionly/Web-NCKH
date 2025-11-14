@@ -120,8 +120,8 @@ def show():
                 f"""
                 <div style="text-align: center;">
                     <div style="display: inline-flex; justify-content: center; gap: 20px;">
-                        <img src="data:image/png;base64,{images_base64[0]}" width="400">
-                        <img src="data:image/png;base64,{images_base64[1]}" width="400">
+                        <img src="data:image/png;base64,{images_base64[0]}" width="330">
+                        <img src="data:image/png;base64,{images_base64[1]}" width="330">
                     </div>
                     <p style="font-size:18px; color:gray; margin-top: 20px;">
                         Biểu đồ Violin thể hiện sự khác biệt về điểm nguy cơ di căn xương giữa hai nhóm di căn và không di căn xương ở hai tập dữ liệu
@@ -141,7 +141,7 @@ def show():
                 f"""
                 <div style="text-align: center;">
                     <img src="data:image/png;base64,{img_base64}" width="400">
-                    <p style="font-size:14px; color:gray; margin-top: 10px;">
+                    <p style="font-size:18px; color:gray; margin-top: 10px;">
                         Đường cong ROC thể hiện khả năng dự đoán di căn xương ở bệnh nhân ung thư vú trên hai tập dữ liệu kiểm tra và độc lập
                     </p>
                 </div>
@@ -162,7 +162,7 @@ def show():
                         <img src="data:image/png;base64,{images_base64[0]}" width="350">
                         <img src="data:image/png;base64,{images_base64[1]}" width="350">
                     </div>
-                    <p style="font-size:14px; color:gray; margin-top: 10px;">
+                    <p style="font-size:18px; color:gray; margin-top: 10px;">
                         Ma trận nhầm lẫn của tập kiểm tra và tập độc lập
                     </p>
                 </div>

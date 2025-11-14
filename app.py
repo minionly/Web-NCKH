@@ -46,7 +46,7 @@ def set_video_background():
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 1; /* 90% transparency */
+        opacity: 0.4; /* 90% transparency */
       }
       .stApp,
       [data-testid="stHeader"],
